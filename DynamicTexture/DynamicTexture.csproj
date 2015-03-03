@@ -125,9 +125,11 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="GameAppDelegate.cs" />
     <Compile Include="GameLayer.cs" />
+    <Compile Include="TestDrawNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Content\images\pattern.png" />
+    <BundleResource Include="Content\texture.png" />
   </ItemGroup>
 </Project>

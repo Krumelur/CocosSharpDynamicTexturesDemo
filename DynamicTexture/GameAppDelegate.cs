@@ -25,9 +25,9 @@ namespace DynamicTexture
 			CCScene.SetDefaultDesignResolution (desiredWidth, desiredHeight, CCSceneResolutionPolicy.ShowAll);
       
 			CCScene scene = new CCScene (mainWindow);
-			GameLayer gameLayer = new GameLayer ();
+			CCLayer layer = new HillLayer ();// new GameLayer ();
 
-			scene.AddChild (gameLayer);
+			scene.AddChild (layer);
 
 			mainWindow.RunWithScene (scene);
 		}

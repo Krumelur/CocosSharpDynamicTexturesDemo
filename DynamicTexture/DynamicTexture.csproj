@@ -126,6 +126,9 @@
     <Compile Include="GameAppDelegate.cs" />
     <Compile Include="GameLayer.cs" />
     <Compile Include="TestDrawNode.cs" />
+    <Compile Include="HillLayer.cs" />
+    <Compile Include="HillNode.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

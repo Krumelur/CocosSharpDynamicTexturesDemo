@@ -17,49 +17,6 @@ namespace DynamicTexture
 		{
 			base.AddedToScene();
 
-
-			//const float fadeTimeSeconds = 3f;
-			//			this.sprite1 = CreateRandomDynamicSprite ();
-			//			this.sprite1.Position = this.ContentSize.Center;
-			//			this.AddChild (this.sprite1);
-			//
-			//			this.sprite2 = CreateRandomDynamicSprite ();
-			//			this.sprite2.Position = this.ContentSize.Center;
-			//			this.AddChild (this.sprite2);
-			//			bool alternate = true;
-			//
-			//			while(true)
-			//			{
-			//				if (alternate)
-			//				{
-			//					this.sprite2.RunAction(new CCFadeOut(fadeTimeSeconds));
-			//					await this.sprite1.RunActionAsync(new CCFadeIn(fadeTimeSeconds));
-			//					this.RemoveChild(this.sprite2);
-			//					this.sprite2 = CreateRandomDynamicSprite ();
-			//					this.sprite2.Position = this.ContentSize.Center;
-			//					this.AddChild (this.sprite2);
-			//				}
-			//				else
-			//				{
-			//					this.sprite1.RunAction(new CCFadeOut(fadeTimeSeconds));
-			//					await this.sprite2.RunActionAsync(new CCFadeIn(fadeTimeSeconds));
-			//					this.RemoveChild(this.sprite1);
-			//					this.sprite1 = CreateRandomDynamicSprite ();
-			//					this.sprite1.Position = this.ContentSize.Center;
-			//					this.AddChild (this.sprite1);
-			//				}
-			//				alternate = !alternate;
-			//			}
-
-			//			var dynSprite = CreateRandomDynamicSprite ();
-			//			dynSprite.AnchorPoint = CCPoint.AnchorMiddle;
-			//			dynSprite.Position = this.ContentSize.Center;
-			//			this.AddChild (dynSprite);
-
-
-
-			var visibleRect = VisibleBoundsWorldspace;
-
 			// We will not clear the primitives after creating them
 			// This will allow us to keep drawing the same over and over.
 			geoBatch.AutoClearInstances = false;
@@ -102,42 +59,42 @@ namespace DynamicTexture
 
 			// Texture coordinates use a normalized value 0 to 1
 			vertices[0].TexCoords.U = 0;
-			vertices[0].TexCoords.V = 1;
+			vertices[0].TexCoords.V = 0;
 
 			vertices[1].TexCoords.U = 1;
 			vertices[1].TexCoords.V = 0;
 
 			vertices[2].TexCoords.U = 0;
-			vertices[2].TexCoords.V = 0;
+			vertices[2].TexCoords.V = 1;
 
 			vertices[3].TexCoords.U = 1;
 			vertices[3].TexCoords.V = 1;
 
 			// Set screen coordinates (lower left = 0/0; going up and right).
 			// Left triangle. Top right
-			vertices[0].Vertices.X = 50;
-			vertices[0].Vertices.Y = 450;
+			vertices[0].Vertices.X = 50; // 50
+			vertices[0].Vertices.Y = 50; // 450
 
 			// top right
-			vertices[1].Vertices.X = 450;
-			vertices[1].Vertices.Y = 450;
+			vertices[1].Vertices.X = 450; // 450
+			vertices[1].Vertices.Y = 50; // 450
 
 			// bottom left
-			vertices[2].Vertices.X = 50;
-			vertices[2].Vertices.Y = 50;
+			vertices[2].Vertices.X = 50; // 50
+			vertices[2].Vertices.Y = 450; // 50
 
 			// Right triangle (bottom right)
-			vertices[3].Vertices.X = 450;
-			vertices[3].Vertices.Y = 50;
+			vertices[3].Vertices.X = 450; // 450
+			vertices[3].Vertices.Y = 450; // 50
 
 
-			item.GeometryPacket.Indicies = new int[] { 0, 2, 1, 3, 2, 1 };
+			item.GeometryPacket.Indicies = new int[] { 0, 2, 1, 1,2, 3 };
 
-			//			var rotation = CCAffineTransform.Identity;
-			//			rotation.Rotation = (float)Math.PI / 4.0f;
-			//			rotation.Tx = windowSize.Center.X - texture.PixelsWide / 2;
-			//			rotation.Ty = windowSize.Center.Y - texture.PixelsHigh / 2;
-			//			item.InstanceAttributes.AdditionalTransform = rotation;
+						var rotation = CCAffineTransform.Identity;
+						rotation.Rotation = (float)Math.PI / 4.0f;
+			rotation.Tx = windowSize.Center.X - packet.Texture.PixelsWide / 2;
+			rotation.Ty = windowSize.Center.Y - packet.Texture.PixelsHigh / 2;
+						item.InstanceAttributes.AdditionalTransform = rotation;
 
 			geoBatch.End();
 		}

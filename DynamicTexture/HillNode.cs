@@ -7,21 +7,35 @@ namespace DynamicTexture
 {
 	public class HillNode : CCNode
 	{
-		public HillNode (CCSize contentSize, CCTexture2D texture) : base(contentSize)
+		public HillNode (CCSize contentSize, CCTexture2D texture, bool showDebug) : base(contentSize)
 		{
-			this.texture = texture;
+			this.Texture = texture;
+			this.showDebug = showDebug;
 		}
+
+		bool showDebug;
 
 		const int NUM_HILL_KEY_POINTS = 1000;
 		const float HILL_SEGMENT_WIDTH_PIXELS = 16;
 		const int HILL_WIDTH_PIXELS = 256;
 
-		CCTexture2D texture;
+
+
 		List<CCPoint> keyHillPoints;
 		int minKeyPointIndex;
 		int maxKeyPointIndex;
 		CCGeometryBatch geoBatch;
 		float offsetX;
+
+		/// <summary>
+		/// Gets or sets the texture.
+		/// </summary>
+		/// <value>The texture.</value>
+		public CCTexture2D Texture
+		{
+			get;
+			set;
+		}
 
 		/// <summary>
 		/// Gets or sets the current scrolling position of the hill landscape. 
@@ -133,7 +147,7 @@ namespace DynamicTexture
 				var previousSegmentPoint = segmentPoints [0];
 				// Calculate how wide one segment will be in the texture by dividing texture width by number of segments (remember: there is one more segment point than segments,
 				// just like a fence has one more post than spaces!).
-				float textureSegmentWidthPixels = this.texture.PixelsWide / (segmentPoints.Count - 1);
+				float textureSegmentWidthPixels = this.Texture.PixelsWide / (segmentPoints.Count - 1);
 
 				// Draw a quad for each segment.
 				for (int segmentIndex = 1; segmentIndex < segmentPoints.Count; segmentIndex++)
@@ -142,8 +156,8 @@ namespace DynamicTexture
 
 					// Get the proportional X coordinate within the texture for the previous segment point and the current one.
 					// That defines the part of the texture we will draw.
-					float previousSegmentPropX = (float)((segmentIndex - 1) * textureSegmentWidthPixels) / this.texture.PixelsWide;
-					float currentSegmentPropX = (float)(segmentIndex * textureSegmentWidthPixels) / this.texture.PixelsWide;
+					float previousSegmentPropX = (float)((segmentIndex - 1) * textureSegmentWidthPixels) / this.Texture.PixelsWide;
+					float currentSegmentPropX = (float)(segmentIndex * textureSegmentWidthPixels) / this.Texture.PixelsWide;
 
 					// Draw the quad.
 					this.geoBatch.AddTexturedQuad (
@@ -151,7 +165,7 @@ namespace DynamicTexture
 						upperLeft: previousSegmentPoint,
 						upperRight: currentSegmentPoint,
 						lowerRight: new CCPoint (currentSegmentPoint.X, 0),
-						texture: this.texture,
+						texture: this.Texture,
 						texturePropLowerLeft: new CCPoint (previousSegmentPropX, 0),
 						texturePropUpperLeft: new CCPoint (previousSegmentPropX, 1),
 						texturePropUpperRight: new CCPoint (currentSegmentPropX, 1),
@@ -219,33 +233,34 @@ namespace DynamicTexture
 		{
 			base.Draw ();
 
-			CCDrawingPrimitives.Begin ();
-
-			// Visualize keypoints and smoothed segments.
-			CCDrawingPrimitives.LineWidth = 2;
-			for (int i = (int)Math.Max (1, this.minKeyPointIndex); i <= this.maxKeyPointIndex; i++)
+			if (this.showDebug)
 			{
-				var p0 = this.keyHillPoints [i - 1];
-				var p1 = this.keyHillPoints [i];
+				CCDrawingPrimitives.Begin ();
 
-				// Draw straight line between two keypoints.
-				CCDrawingPrimitives.DrawLine (p0, p1, CCColor4B.White);
-
-				// Draw smoothed curve.
-				var segmentPoints = this.GetSegmentLocations (p0, p1, HILL_SEGMENT_WIDTH_PIXELS);
-				var previousSegmentPoint = segmentPoints [0];
-				for(int segmentIndex = 1; segmentIndex < segmentPoints.Count; segmentIndex++)
+				// Visualize keypoints and smoothed segments.
+				CCDrawingPrimitives.LineWidth = 2;
+				for (int i = (int)Math.Max (1, this.minKeyPointIndex); i <= this.maxKeyPointIndex; i++)
 				{
-					var currentSegmentPoint = segmentPoints [segmentIndex];
-					CCDrawingPrimitives.DrawLine (previousSegmentPoint, currentSegmentPoint, CCColor4B.Yellow);
-					previousSegmentPoint = currentSegmentPoint;
+					var p0 = this.keyHillPoints [i - 1];
+					var p1 = this.keyHillPoints [i];
+
+					// Draw straight line between two keypoints.
+					CCDrawingPrimitives.DrawLine (p0, p1, CCColor4B.White);
+
+					// Draw smoothed curve.
+					var segmentPoints = this.GetSegmentLocations (p0, p1, HILL_SEGMENT_WIDTH_PIXELS);
+					var previousSegmentPoint = segmentPoints [0];
+					for (int segmentIndex = 1; segmentIndex < segmentPoints.Count; segmentIndex++)
+					{
+						var currentSegmentPoint = segmentPoints [segmentIndex];
+						CCDrawingPrimitives.DrawLine (previousSegmentPoint, currentSegmentPoint, CCColor4B.Yellow);
+						previousSegmentPoint = currentSegmentPoint;
+					}
 				}
+
+				CCDrawingPrimitives.End ();
 			}
-
-			CCDrawingPrimitives.End ();
-
 			this.geoBatch.Draw ();
-
 		}
 
 	}

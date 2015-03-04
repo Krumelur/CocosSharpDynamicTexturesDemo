@@ -133,6 +133,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Content\images\pattern.png" />
-    <BundleResource Include="Content\texture.png" />
+    <BundleResource Include="Content\images\texture.png" />
   </ItemGroup>
 </Project>

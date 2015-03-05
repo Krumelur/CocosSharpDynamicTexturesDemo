@@ -1,7 +1,7 @@
 ﻿using System;
 using CocosSharp;
 
-namespace DynamicTexture
+namespace HillsDemo
 {
 	/// <summary>
 	/// Various helper methods.

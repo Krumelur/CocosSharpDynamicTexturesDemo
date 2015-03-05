@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CocosSharp;
 
-namespace DynamicTexture
+namespace HillsDemo
 {
 	/// <summary>
 	/// Renders a layer that contains random textured hills.
@@ -11,7 +11,7 @@ namespace DynamicTexture
 	public class HillLayer : CCLayer
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="DynamicTexture.HillLayer"/> class.
+		/// Initializes a new instance of the <see cref="HillsDemo.HillLayer"/> class.
 		/// </summary>
 		/// <param name="texture">Texture.</param>
 		/// <param name="numHillKeyPoints">Number of hill key points (how many hills would you like?)</param>

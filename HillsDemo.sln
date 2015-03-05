@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicTexture", "DynamicTexture\DynamicTexture.csproj", "{1A721BC8-5D00-435C-BB78-A0C69F2617A2}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HillsDemo.Shared", "HillsDemo.Shared\HillsDemo.Shared.shproj", "{7DF15E16-0A13-40A8-925D-15BC33C8D606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HillsDemo.Android", "HillsDemo.Android\HillsDemo.Android.csproj", "{825A4294-9BB5-42D7-906E-8B948993EFBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HillsDemo.iOS", "HillsDemo.iOS\HillsDemo.iOS.csproj", "{1A721BC8-5D00-435C-BB78-A0C69F2617A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,5 +29,17 @@ Global
 		{1A721BC8-5D00-435C-BB78-A0C69F2617A2}.Release|iPhone.Build.0 = Release|iPhone
 		{1A721BC8-5D00-435C-BB78-A0C69F2617A2}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{1A721BC8-5D00-435C-BB78-A0C69F2617A2}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Release|iPhone.Build.0 = Release|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{825A4294-9BB5-42D7-906E-8B948993EFBE}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

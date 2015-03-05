@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CocosSharp;
 
-namespace DynamicTexture
+namespace HillsDemo
 {
 	/// <summary>
 	/// Main layer for the demo.

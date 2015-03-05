@@ -1,8 +1,7 @@
 ﻿using System;
 using CocosSharp;
 
-
-namespace DynamicTexture
+namespace HillsDemo
 {
 	public class GameAppDelegate : CCApplicationDelegate
 	{

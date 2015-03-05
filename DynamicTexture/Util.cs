@@ -3,6 +3,9 @@ using CocosSharp;
 
 namespace DynamicTexture
 {
+	/// <summary>
+	/// Various helper methods.
+	/// </summary>
 	public static class Util
 	{
 		/// <summary>
@@ -35,6 +38,32 @@ namespace DynamicTexture
 			return randomColor;
 		}
 
+		/// <summary>
+		/// Adds a textured quad to a CCGeometryBatch
+		///  TL    TR
+		///   1----2 
+		///   |   /| 
+		///   |  / |
+		///   | /  |
+		///   |/   |
+		///   0----3
+		///  BL    BR 
+		/// </summary>
+		/// <returns>The textured quad</returns>
+		/// <param name="geoBatch">Geo batch to add to</param>
+		/// <param name="lowerLeft">Lower left corner in screen coordinates</param>
+		/// <param name="upperLeft">Upper left corner in screen coordinates</param>
+		/// <param name="upperRight">Upper right corner in screen coordinates</param>
+		/// <param name="lowerRight">Lower right corner in screen coordinates</param>
+		/// <param name="texture">Texture</param>
+		/// <param name="texturePropLowerLeft">Texture lower left coordinate (proportional - this goes from 0 to 1); defaults to 0,0</param>
+		/// <param name="texturePropUpperLeft">Texture upper left coordinate (proportional - this goes from 0 to 1); defaults to 0,1</param>
+		/// <param name="texturePropUpperRight">Texture upper right coordinate (proportional - this goes from 0 to 1); defaults to 1,1</param>
+		/// <param name="texturePropLowerRight">Texture lower right coordinate (proportional - this goes from 0 to 1); defaults to 1,0</param>
+		/// <param name="colorLowerLeft">Color lower left (defaults to white)</param>
+		/// <param name="colorUpperLeft">Color upper left (defaults to white)</param>
+		/// <param name="colorUpperRight">Color upper right (defaults to white)</param>
+		/// <param name="colorLowerRight">Color lower right (defaults to white)</param>
 		public static CCGeometryInstance AddTexturedQuad(
 			this CCGeometryBatch geoBatch,
 			CCPoint lowerLeft,

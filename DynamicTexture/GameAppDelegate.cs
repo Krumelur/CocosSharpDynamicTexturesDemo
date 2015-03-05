@@ -17,15 +17,13 @@ namespace DynamicTexture
 
 			CCSize windowSize = mainWindow.WindowSizeInPixels;
 
-			float desiredWidth = 1024.0f;
-			float desiredHeight = 768.0f;
+			const float desiredWidth = 1024.0f;
+			const float desiredHeight = 768.0f;
             
-			// This will set the world bounds to be (0,0, w, h)
-			// CCSceneResolutionPolicy.ShowAll will ensure that the aspect ratio is preserved
 			CCScene.SetDefaultDesignResolution (desiredWidth, desiredHeight, CCSceneResolutionPolicy.ShowAll);
       
 			CCScene scene = new CCScene (mainWindow);
-			CCLayer layer = new HillLayer ();// new GameLayer ();
+			CCLayer layer = new MainLayer ();
 
 			scene.AddChild (layer);
 

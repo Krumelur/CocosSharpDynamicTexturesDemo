@@ -82,10 +82,8 @@ namespace HillsDemo
 		{
 			var item = geoBatch.CreateGeometryInstance(4, 6);
 			var vertices = item.GeometryPacket.Vertices;
-			var packet = item.GeometryPacket;
 
-			packet.Texture = texture;
-			item.GeometryPacket = packet;
+			item.GeometryPacket.Texture = texture;
 
 			/* Draw polygons
 			* 

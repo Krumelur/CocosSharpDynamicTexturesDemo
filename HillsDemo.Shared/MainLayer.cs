@@ -9,7 +9,7 @@ namespace HillsDemo
 	/// </summary>
 	public class MainLayer : CCLayerGradient
 	{
-		public MainLayer () : base(CCColor4B.Blue, CCColor4B.Black)
+		public MainLayer () : base(CCColor4B.Black, CCColor4B.Black)
 		{
 		}
 

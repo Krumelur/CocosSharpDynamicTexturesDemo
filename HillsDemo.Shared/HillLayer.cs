@@ -192,7 +192,7 @@ namespace HillsDemo
 				CCDrawingPrimitives.Begin ();
 
 				// Visualize keypoints and smoothed segments.
-				CCDrawingPrimitives.LineWidth = 2;
+				CCDrawingPrimitives.LineWidth = 4;
 				for (int i = (int)Math.Max (1, this.minKeyPointIndex); i <= this.maxKeyPointIndex; i++)
 				{
 					var p0 = this.keyHillPoints [i - 1];

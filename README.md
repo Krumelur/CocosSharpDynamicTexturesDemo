@@ -12,7 +12,7 @@ It demonstrates how to:
 
 The project runs on iOS and Android. 
 
-![Screenshot](https://raw.githubusercontent.com/Krumelur/CocosSharpHillsDemo/master/hills.png)
+![Screenshot](https://raw.githubusercontent.com/Krumelur/CocosSharpHillsDemo/master/assets/hills.png)
 
 This project was inspired by Ray Wenderlich's great tutorials. [Go check them out](http://www.raywenderlich.com/32954/how-to-create-a-game-like-tiny-wings-with-cocos2d-2-x-part-1)!
 
